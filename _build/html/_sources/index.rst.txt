@@ -1,0 +1,26 @@
+.. jax-kr documentation master file, created by
+   sphinx-quickstart on Sun Mar  5 19:43:07 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+JAX-KR에 오신 여러분 환영합니다.
+==================================
+
+.. image:: /images/icon.png
+
+``JAX-KR`` 은 모두의연구소에서 진행하고 있는 *JAX/Flax LAB* 에서 나온 
+결과물중 하나인 JAX Documenataion을 한글화하는 작업입니다.
+
+JAX뿐만 아니라 Flax 등 많은 프로젝틀르 현재 진행하고 있습니다.
+관심있는 분들은 언제든지 저에게 **메일(dudqls4019@gmail.com)** 으로 부탁드립니다.
+
+.. note::
+   JAX는 고성능 수치 계산을 위해 오토그래드와 XLA를 결합한 것입니다.
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: JAX-KR
+
+   tutorial-docs/index
+   tutorial-docs/justcode

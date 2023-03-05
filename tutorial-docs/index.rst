@@ -9,8 +9,10 @@ JAX-KR 튜토리얼
 JAX 튜토리얼을 직접 작업한 사람들은 DeepMind에 소속되어 있는 엔지니어와 리서쳐가 만들었습니다.
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Tutorial
+   :maxdepth: 2
+   :caption: 튜토리얼
 
-  JAX_The Sharp bits
+   tutorial-docs/jax-101/jax_sharp_bits
+
+* :doc:`jax_the_sharp_bits</tutorial-docs/jax-101/jax_sharp_bits>`
    

@@ -10,7 +10,7 @@ JAX 튜토리얼을 직접 작업한 사람들은 DeepMind에 소속되어 있�
 
 .. toctree::
   :maxdepth: 1
-  :caption: 목차
+  :caption: Tutorial
 
   JAX_The Sharp bits
    

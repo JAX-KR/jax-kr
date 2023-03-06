@@ -19,7 +19,6 @@ JAX뿐만 아니라 Flax 등 많은 프로젝트를 현재 진행하고 있습�
    :caption: JAX-KR
 
    tutorial-docs/index
-   tutorial-docs/jax-101/jax_sharp_bits
 
 .. note::
    JAX는 고성능 수치 계산을 위해 오토그래드와 XLA를 결합한 것입니다.

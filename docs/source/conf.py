@@ -30,7 +30,7 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-html_logo = '_static/jax_logo_250px.png'
+html_logo = '_static/jax-kr.png'
 html_theme = 'sphinx_book_theme'  # in conf.py file
 html_static_path = ['_static']
 

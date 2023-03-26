@@ -1,8 +1,12 @@
 # JAX의 고급 자동 미분
+---
+<a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/04-advanced-autodiff.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-*원저자: Vlatimir Miklik & Matteo Hessel*
+*저자: Vlatimir Miklik & Matteo Hessel*
 
 *역자 : 이영빈*
+
+*검수 : 김한빈, 박정현*
 
 기울기(gradient)를 계산하는 것은 현대 머신러닝 기법에서 중요한 영역입니다. 이번 섹션은 현대 머신러닝에 관련된 자동 미분의 몇가지 고급 주제를 다룹니다.
 

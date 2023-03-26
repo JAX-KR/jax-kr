@@ -5,6 +5,10 @@
 
 *저자: Rosalia Schneider & Vladimir Mikulik*
 
+*역자 : 김형섭*
+
+*검수 : 
+
 이 섹션에서는 JAX의 동작 방식과 JAX의 성능 향상 방법을 살펴볼 것입니다. `jax.jit()` 변환을 통해 JIT(Just-In-Time) 컴파일을 수행하여 JAX 파이썬 함수를 XLA에서 효율적으로 실행할 수 있는 방법을 설명할 것입니다.
 
 ## JAX 변환의 동작 방식

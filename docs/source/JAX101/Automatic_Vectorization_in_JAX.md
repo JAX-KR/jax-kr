@@ -1,4 +1,12 @@
 # JAX의 자동 벡터화
+---
+<a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/03-vectorization.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+
+*저자 : Matteo Hessel*
+
+*역자 : 박정현*
+
+*
 
 이전 섹션에서 jax.jit 함수를 통한 JIT 컴파일에 대해 이야기해 보았습니다.
 이 노트북은 JAX의 또 다른 변환인 jax.vmap을 통한 벡터화(vectorization)에 대해 이야기 합니다.

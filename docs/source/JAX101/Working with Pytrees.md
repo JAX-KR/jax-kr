@@ -2,8 +2,11 @@
 
 <a href="https://colab.research.google.com/drive/1iYLSQalLqC0KuRPqCNwGj_O9aKwgMWGz" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-*저자: Vladimir Mikulik* <br/>
-*번역: 장혜선*
+*저자 : Vladimir Mikulik* <br/>
+
+*번역 : 장혜선*
+
+*검수 : 
 
 배열의 딕셔너리, 딕셔너리 리스트로 이루어진 리스트, 또는 다른 중첩 구조의 객체와 작업하고자 하는 경우가 있습니다. JAX에서는 이러한 것들을 '파이트리(pytrees)' 라고 부르지만 가끔은 '네스트(nests)' 또는 '트리(trees)'라고 부르기도 합니다.
 

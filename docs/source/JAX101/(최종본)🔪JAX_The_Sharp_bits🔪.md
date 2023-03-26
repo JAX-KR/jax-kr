@@ -1,9 +1,12 @@
 # 🔪JAX - 세부적인 특징들 (JAX - The Sharp Bits)🔪
 ---
+<a href="https://colab.research.google.com/github/google/jax/blob/main/docs/notebooks/Common_Gotchas_in_JAX.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-역자 : 장진우(wdfrty1234@gmail.com)
+*저자 : Anselm Levskaya & Mattew Johnson*
 
-검수 : 이영빈, 박정현
+*역자 : 장진우(wdfrty1234@gmail.com)*
+
+*검수 : 이영빈, 박정현*
 
 > 이탈리아 변두리를 걷다보면, 사람들이 `JAX`에 대해 *[“una anima di pura programmazione funzionale(순수한 함수형 프로그래밍의 영혼)”](https://www.sscardapane.it/iaml-backup/jax-intro/)*이라는 용어로 묘사하는 사람들이 많다는 것을 알 수 있습니다.
 

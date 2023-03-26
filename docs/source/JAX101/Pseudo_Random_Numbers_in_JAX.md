@@ -2,8 +2,11 @@
 
 <a href="https://colab.research.google.com/drive/1PkpzL8bkU4IlUbytFc-JX93QXtNX1tsD" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-*저자: Matteo Hessel & Rosalia Schneider* \
-*번역: 조영빈*
+*저자 : Matteo Hessel & Rosalia Schneider* \
+
+*역자 : 조영빈*
+
+*검수 : 장혜선, 
 
 
 ```python

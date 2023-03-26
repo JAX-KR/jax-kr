@@ -1,13 +1,13 @@
 # JAX에서 병렬 평가(Parallel Evaluation)
-
-번역일 : 2023.02.06  
-번역자 : [유현아](https://www.linkedin.com/in/hayoo2/)  
-검수자 : 
-
+---
 <a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/06-parallelism.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-
 *저자: Vladimir Mikulik & Roman Ring*
+
+*역자 : [유현아](https://www.linkedin.com/in/hayoo2/)*
+
+*검수 : 조영빈, 장혜선* 
+
 
 이번 세션에서는 SPMD(single-program, multiple-data) 코드를 위해 JAX에 내장된 기능을 설명합니다.
 

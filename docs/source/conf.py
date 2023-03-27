@@ -20,6 +20,7 @@ extensions = [
     'myst_nb',
     'sphinx_design'
 ]
+myst_enable_extensions = ['dollarmath']
 source_suffix = ['.rst', '.md', '.ipynb']
 
 

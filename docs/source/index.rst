@@ -60,6 +60,7 @@ JAX는 고성능 수치 컴퓨팅을 위해 `Autograd <https://github.com/hips/a
 JAX 프로젝트 README의 `설치 가이드 <https://github.com/google/jax#installation>`_에서 지원되는 가속기와 플랫폼에 대한 자세한 정보 및 기타 설치 옵션을 확인할 수 있습니다.
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
    :caption: Getting Started
 

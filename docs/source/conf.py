@@ -16,9 +16,9 @@ author = 'JAX/Flax Lab'
 
 
 extensions = [
+    'sphinx.ext.mathjax',
     'myst_nb',
-    'sphinx_design',
-    'sphinx.ext.mathjax'
+    'sphinx_design'
 ]
 source_suffix = ['.rst', '.md', '.ipynb']
 

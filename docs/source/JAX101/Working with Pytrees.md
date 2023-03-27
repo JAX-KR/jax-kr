@@ -2,11 +2,9 @@
 
 <a href="https://colab.research.google.com/drive/1iYLSQalLqC0KuRPqCNwGj_O9aKwgMWGz" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-*저자 : Vladimir Mikulik* <br/>
-
-*번역 : 장혜선*
-
-*검수 : 김한빈*
+*저자: Vladimir Mikulik* <br/>
+*번역: 장혜선* <br/>
+*검수: 김한빈*
 
 배열의 딕셔너리, 딕셔너리 리스트로 이루어진 리스트, 또는 다른 중첩 구조의 객체와 작업하고자 하는 경우가 있습니다. JAX에서는 이러한 것들을 '파이트리(pytrees)' 라고 부르지만 가끔은 '네스트(nests)' 또는 '트리(trees)'라고 부르기도 합니다.
 
@@ -179,7 +177,7 @@ plt.legend();
 
 
     
-![png](Working_with_Pytrees_files/Working_with_Pytrees_16_0.png)
+![png](Working%20with%20Pytrees_files/Working%20with%20Pytrees_16_0.png)
     
 
 
@@ -425,3 +423,4 @@ jax.tree_transpose(
 ## 추가 정보
 
 JAX의 파이트리(Pytree)와 사용 가능한 연산에 대한 자세한 내용은 공식 JAX 문서의 [Pytrees](https://jax.readthedocs.io/en/latest/pytrees.html) 섹션을 참조하세요.
+

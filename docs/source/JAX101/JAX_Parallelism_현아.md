@@ -2,12 +2,10 @@
 ---
 <a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/06-parallelism.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
-*저자: Vladimir Mikulik & Roman Ring*
 
-*역자 : [유현아](https://www.linkedin.com/in/hayoo2/)*
-
-*검수 : 조영빈, 장혜선* 
-
+*저자 : Vladimir Mikulik & Roman Ring  
+번역 : [유현아](https://www.linkedin.com/in/hayoo2/)   
+검수: 장혜선, 조영빈*  
 
 이번 세션에서는 SPMD(single-program, multiple-data) 코드를 위해 JAX에 내장된 기능을 설명합니다.
 
@@ -192,7 +190,7 @@ jax.pmap(convolve)(xs, jax.pmap(convolve)(xs, ws))
 
 ## 'in_axes' 지정
 
-`vmap`과 마찬가지로 `in_axes`를 사용하여 병렬화된 함수에 대한 인수를 브로드캐스트(`None`)할지 또는 주어진 축을 따라 분할할지 여부를 지정할 수 있습니다. 단, `vmap`과 달리 `pmap`은 이 가이드 작성 시점에서 선행 축(`0`)만 지원한다는 점에 유의하십시오.
+`vmap`과 마찬가지로 `in_axes`를 사용하여 병렬화된 함수의 인수가 브로드캐스트(`None`)할지 또는 주어진 축을 따라 분할할지 여부를 지정할 수 있습니다. 단, `vmap`과 달리 `pmap`은 이 가이드 작성 시점에서 선행 축(`0`)만 지원한다는 점에 유의하십시오.
 
 
 ```python
@@ -213,9 +211,9 @@ jax.pmap(convolve, in_axes=(0, None))(xs, w)
 
 
 
-`ws`를 만들 때 `w`를 수동으로 복제한 `jax.pmap(convolve)(xs, ws)`를 사용하여 위에서 관찰한 것과 동등한 출력을 얻는 방법에 주목하십시오. 여기서는 `in_axes`에서 `None`으로 지정하여 브로드캐스팅을 통해 복제합니다.
+위에서 `ws`를 만들 때 `w`를 수동으로 복제한 `jax.pmap(convolve)(xs, ws)`과 동일한 출력을 얻는 방법에 주목하십시오. 여기서는 `in_axes`에서 `None`으로 지정하여 브로드캐스팅으로 복제하였습니다.
 
-변환된 함수를 호출할 때 인수에 지정된 축의 크기가 호스트에서 사용할 수 있는 디바이스 수를 초과하면 안 됩니다.
+변환된 함수를 호출할 때, 인수의 지정된 축의 크기는 호스트에서 사용 가능한 다바이스 수를 초과해서는 안 된다는 것을 기억해주세요.
 
 ## `pmap`과 `jit`
 
@@ -223,9 +221,9 @@ jax.pmap(convolve, in_axes=(0, None))(xs, w)
 
 ## 디바이스 간 통신
 
-위의 내용으로는 단순한 병렬 연산, 예를 들어 다수의 디바이스에서 간단한 MLP 순전파를 배치하는 것을 수행하기에 충분합니다. 그러나 때로는 디바이스 간에 정보를 전달해야 합니다. 예를 들어 각 디바이스의 출력을 정규화하여 합계가 1이 되도록 하는 데 관심이 있을 수 있습니다.
+위의 내용으로는 단순한 병렬 연산, 예를 들어 다수의 디바이스에서 간단한 MLP 순전파를 배치하는 것을 수행하기에 충분합니다. 그러나 때로는 디바이스 간 정보를 전달해야 하는 경우도 있습니다. 예를 들어, 각 디바이스의 출력을 정규화하여 합이 1이 되도록 하는 데 관심이 있을 수 있습니다.
 
-이를 위해서는는 특별한 [collective ops](https://jax.readthedocs.io/en/latest/jax.lax.html#parallel-operators)(예: `jax.lax.p*` ops ` psum`, `pmean`, `pmax`, ...)를 사용할 수 있습니다. Collective ops를 사용하기 위해서는 `axis_name` 인수를 통해 `pmap`이 적용된 축의 이름을 지정한 다음 op를 호출할 때 참조해야 합니다. 방법은 다음과 같습니다.
+이를 위해서는 특수한 [집합 연산(collective ops)](https://jax.readthedocs.io/en/latest/jax.lax.html#parallel-operators)(예: `jax.lax.p*` ops ` psum`, `pmean`, `pmax`, ...)를 사용할 수 있습니다. 집합 연산(collective ops)을 사용하려면, `axis_name` 인수를 통해 `pmap`을 적용된 축의 이름을 지정한 다음 연산을 호출할 때 참조해야 합니다. 방법은 다음과 같습니다.
 
 
 ```python
@@ -255,9 +253,9 @@ jax.pmap(normalized_convolution, axis_name='p')(xs, ws)
 
 >`번역하기 어렵네요`  The `axis_name` is just a string label that allows collective operations like `jax.lax.psum` to refer to the axis bound by `jax.pmap`. It can be named anything you want -- in this case, `p`. This name is essentially invisible to anything but those functions, and those functions use it to know which axis to communicate across.
 
-`axis_name`은 `jax.pmap`에 의해 결정된 축을 참조하기 위해 `jax.lax.psum`과 같은 집단 연산(collective operations)을 허용하는 문자열 레이블입니다. 원하는 이름으로 지정할 수 있습니다. 이 경우에는 `p`입니다. 이 이름은 본질적으로 해당 기능 외에는 보이지 않으며 해당 기능은 통신할 축을 알기 위해 이름을 사용합니다.
+`axis_name`은 `jax.lax.psum` 같은 집단 연산이 `jax.pmap` 이 바인딩하는 축을 참조하도록 하는 문자열 레이블입니다. 이 경우에는 `p`로 지정했습니다. 이 이름은 본질적으로 해당 기능 외에는 보이지 않으며 해당 함수들은 이를 사용하여 통신할 축을 알아냅니다.
 
-`jax.vmap`도 `axis_name`을 지원합니다. 이는 `jax.lax.p*`연산이 `jax.pmap`과 동일한 방식으로 `jax.lax.p*`의 벡터화 컨텍스트에서 사용될 수 있도록 합니다.
+`jax.vmap`또한 `axis_name`을 지원합니다. 이는 `jax.lax.p*`연산이 `jax.pmap`과 동일한 방식으로 `jax.lax.p*`의 벡터화 문맥에서 사용될 수 있도록 합니다.
 
 
 ```python
@@ -278,8 +276,7 @@ jax.vmap(normalized_convolution, axis_name='p')(xs, ws)
 
 
 
-`jax.lax.psum`은 명명된 축(이 경우 `'p'`)이 있을 것으로 예상하기 때문에 `normalized_convolution`은 더 이상 `jax.pmap` 또는 `jax.vmap`에 의해 변환되지 않고는 더 이상 작동하지 않습니다. 이 두 변환이 하나를 결합하하는 유일한 방법입니다.
-
+`normalized_convolution`은 더 이상 `jax.pmap` 또는 `jax.vmap`에 의해 변환되지 않으면 작동하지 않는데, `jax.lax.psum`이 명명된 축(`p`, 이 경우)이 있을 것으로 예상하고, 이 두 변환 방법이 하나로 바인딩하는 유일한 방법이기 때문입니다.
 
 ## `jax.pmap`과 `jax.vmap`의 중첩
 
@@ -292,7 +289,7 @@ jax.vmap(jax.pmap(f, axis_name='i'), axis_name='j')
 ```
 `f`의 `jax.lax.psum(..., axis_name='i')`은 `axis_name`을 공유하므로 pmapped 축만 참조합니다.
 
-일반적으로 `jax.pmap` 과 `jax.vmap`은 임의의 순서로 중첩될 수 있습니다. 예를 들어 다른 `pmap` 내에 `pmap`이 있을 수 있습니다.
+일반적으로 `jax.pmap` 과 `jax.vmap`은 임의의 순서로 중첩될 수 있습니다. 예를 들어 다른 `pmap` 내부에 `pmap`이 있을 수 있습니다.
 
 ## 예제(Example)
 
@@ -302,7 +299,7 @@ jax.vmap(jax.pmap(f, axis_name='i'), axis_name='j')
 * `update()` 함수
 * 매개변수(parameters) 복제 및 디바이스 간 데이터 분할.
 
-이 예제가 너무 복잡하다면, 다음 노트북 [State in JAX](https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/07-state.ipynb)에서 병렬 처리가 없는 같은은 예제를 찾을 수 있습니다. 이 예제가 이해되면 병렬화가 어떻게 다른지 비교하여 그림이 어떻게 변경되는지 이해할 수 있습니다.
+이 예제가 너무 복잡하다면, 다음 노트북 [State in JAX](https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/07-state.ipynb)에서 병렬 처리가 없는 동일한 예제를 찾을 수 있습니다. 이 예제가 이해되면 병렬화가 어떻게 다른지 비교하여 병렬 처리가 어떻게 변경되는지 이해할 수 있습니다.
 
 
 ```python
@@ -362,11 +359,11 @@ def update(params: Params, xs: jnp.ndarray, ys: jnp.ndarray) -> Tuple[Params, jn
 
 We want to spread the `batch` dimension across all available devices. To do that, we add a new axis using `pmap`. The arguments to the decorated `update()` thus need to have shape `[num_devices, batch_per_device, ...]`. So, to call the new `update()`, we'll need to reshape data batches so that what used to be `batch` is reshaped to `[num_devices, batch_per_device]`. That's what `split()` does below. Additionally, we'll need to replicate our model parameters, adding the `num_devices` axis. This reshaping is how a pmapped function knows which devices to send which data.
 
-사용 가능한 모든 디바이스에 'batch' 차원을 확산하려고 합니다. 이를 위해 `pmap`을 사용하여 새 축을 추가합니다. 따라서 데코레이션된 `update()`에 대한 인수는 `[num_devices, batch_per_device, ...]` 형태를 가져야 합니다. 따라서 새로운 `update()`를 호출하려면 `batch`였던 것이 `[num_devices, batch_per_device]`로 재구성되도록 데이터 배치를 재구성해야 합니다. 이것이 `split()`이 아래에서 하는 일입니다. 또한 모델 매개변수를 복제하여 `num_devices` 축을 추가해야 합니다. 이 재구성은 매핑된 함수가 어떤 디바이스에 어떤 데이터를 보낼지 아는 방법입니다.
+사용 가능한 모든 디바이스에 'batch' 차원을 확산하려고 합니다. 이를 위해 `pmap`을 사용하여 새 축을 추가합니다. 따라서 데코레이션된 `update()`에 대한 인수는 `[num_devices, batch_per_device, ...]` 형태를 가져야 합니다. 따라서 새로운 `update()`를 호출하려면 `batch`였던 것이 `[num_devices, batch_per_device]`로 재구성되도록 데이터 배치를 재구성해야 합니다. 이것이 `split()`이 아래에서 하는 일입니다. 또한 모델 매개변수를 복제하여 `num_devices` 축을 추가해야 합니다. 이 재구성은 pmapped된 함수가 어떤 디바이스에 어떤 데이터를 보낼지 아는 방법입니다.
 
 업데이트 단계 중 어느 시점에서 각 디바이스에서 계산된 그래디언트를 결합해야 합니다. 그렇지 않으면 각 디바이스에서 수행하는 업데이트가 달라집니다. 그래서 `jax.lax.pmean`을 사용하여 `num_devices` 축 전체의 평균을 계산하여 배치의 평균 그래디언트를 제공합니다. 그 평균 그래디언트는 우리가 업데이트를 계산하는 데 사용하는 것입니다.
 
-이름을 짓는 것 외에도, 여기서는 `jax.pmap`을 도입하는 동안 교훈적인 명확성을 위해 `axis_name`에 `num_devices`를 사용합니다. 그러나 어떤 점에서는 자기 반증적(tautologous)입니다. pmap에 의해 도입된 모든 축은 여러 디바이스를 나타냅니다. 따라서 'batch', 'data'(데이터 병렬화를 나타냄) 또는 'model'(모델 병렬화를 나타냄)과 같이 의미상 의미 있는 것으로 축 이름을 지정하는 것이 일반적입니다.
+이름을 짓는 것 외에도, 여기서는 `jax.pmap`을 도입하는 동안 교훈적인 명확성을 위해 `axis_name`에 `num_devices`를 사용합니다. 그러나 어떤 의미에서 그것은 너무 자명합니다. pmap에 의해 도입된 모든 축은 여러 디바이스를 나타냅니다. 따라서 `batch`, `data`(데이터 병렬화를 나타냄) 또는 `model`(모델 병렬화를 나타냄)과 같이 의미상 의미 있는 것으로 축 이름을 지정하는 것이 일반적입니다.
 
 
 ```python
@@ -382,7 +379,7 @@ n_devices = jax.local_device_count()
 replicated_params = jax.tree_map(lambda x: jnp.array([x] * n_devices), params)
 ```
 
-지금까지는 선행 차원이 추가된 배열을 구성했습니다. 매개변수는 여전히 모두 호스트(CPU)에 있습니다. `pmap`은 `update()`가 처음 호출될 때 디바이스에 이를 전달하고 각 복사본은 이후에 자체 디바이스에 유지됩니다. ShardedDeviceArray가 아니라 DeviceArray이기 때문에 알 수 있습니다.
+지금까지는 선행 차원이 추가된 배열을 구성했습니다. 매개변수는 여전히 모두 호스트(CPU)에 있습니다. `update()`가 처음 호출될 때 `pmap`은 이들을 다바이스로 통신시키고 각 사본은 이후에 자체 디바이스에 남게됩니다. 그것들은 ShardedDeviceArray가 아니라 DeviceArray이기 때문에 알 수 있습니다.
 
 
 ```python
@@ -396,7 +393,7 @@ type(replicated_params.weight)
 
 
 
-매개변수(params)는 맵핑된 `update()`에서 반환되면 ShardedDeviceArray로 변환될 것입니다. (자세한 내용은 뒷부분을 참고하세요).
+매개변수(params)는 pmapped된 `update()`에서 반환되면 ShardedDeviceArray로 변환될 것입니다. (자세한 내용은 뒷부분을 참고하세요).
 
 데이터에 대해서도 동일한 작업을 수행합니다.
 
@@ -420,7 +417,7 @@ type(x_split)
 
 
 
-데이터는 재구성된 바닐라 NumPy 배열일 뿐입니다. 따라서 NumPy는 CPU에서만 실행되므로 호스트 이외의 위치에 있을 수 없습니다. 우리는 그것을 수정하지 않기 때문에 데이터가 일반적으로 각 단계에서 CPU에서 디바이스로 스트리밍되는 실제 파이프라인에서와 같이 각 `update` 호출마다 디바이스로 전송됩니다.  
+데이터는 단순히 재구성된 바닐라 NumPy 배열입니다. 따라서 NumPy는 CPU에서만 실행되므로 호스트 이외의 위치에 있을 수 없습니다. 그것을 수정하지 않기 때문에, 일반적으로 각 단계에서 CPU에서 디바이스로 데이터가 스트리밍되는 실제 파이프라인에서와 같이 각 `update` 호출마다 디바이스로 전송됩니다.
 
 
 ```python
@@ -481,13 +478,13 @@ plt.show()
 
 
     
-![png](JAX_Parallelism_%ED%98%84%EC%95%84_files/JAX_Parallelism_%ED%98%84%EC%95%84_41_0.png)
+![png](JAX_Parallelism_files/JAX_Parallelism_43_0.png)
     
 
 
 ## Aside: JAX에서의 호스트와 디바이스
 
-TPU에서 실행할 때 '호스트'라는 개념이 중요해집니다. 호스트는 여러 디바이스를 관리하는 CPU입니다. 단일 호스트가 관리할 수 있는 디바이스 수는 8개(보통 8개)만 관리할 수 있으므로 대규모 병렬 프로그램을 실행할 때 여러 호스트가 필요하며 이를 관리하려면 약간의 기술이 필요합니다. 
+TPU에서 실행할 때 '호스트'라는 개념이 중요해집니다. 호스트는 여러 디바이스를 관리하는 CPU입니다. 단일 호스트가 관리할 수 있는 디바이스 수(일반적으로 8개)는 한정적이기 때문에 대규모 병렬 프로그램을 실행할 때 여러 호스트가 필요하며 이를 관리하려면 약간의 기술이 필요합니다. 
 
 
 ```python
@@ -525,8 +522,3 @@ jax.devices()
  CpuDevice(id=7)]
 ```
 이것은 CPU 런타임이 (재)시작하는 것이 더 빠르기 때문에 로컬에서 디버깅 및 테스트하거나 Colab에서 프로토타이핑하는 데 특히 유용합니다.  
-
-
-```python
-
-```

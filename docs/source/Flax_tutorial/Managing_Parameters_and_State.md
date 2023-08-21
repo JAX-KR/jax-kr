@@ -1,4 +1,3 @@
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1t0tNabmk7stqu_IdjyomIkUblMBqyfba?usp=sharing)
 
 # 파라미터와 상태 관리하기
 

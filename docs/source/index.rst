@@ -74,5 +74,9 @@ JAX 프로젝트 README의 `설치 가이드 <https://github.com/google/jax#inst
 
    JAX101/index
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
 
+   Flax_tutorial/index
 

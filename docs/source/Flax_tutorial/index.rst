@@ -1,4 +1,4 @@
-Tutorial: Flax Tutorial
+Flax Tutorial
 ==============================================
 
 .. toctree::

@@ -6,5 +6,6 @@ Flax Tutorial
    :caption: Tutorial
 
    Managing_Parameters_and_State.md
+   Processing_the_entire_Dataset.md
 
 

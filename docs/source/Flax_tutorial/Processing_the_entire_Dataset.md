@@ -78,8 +78,7 @@ author_profile: false
   </style>
 </head>
 
-
-<a href="[https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/06-parallelism.ipynb](https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb)" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+<a href="https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 
 

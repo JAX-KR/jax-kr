@@ -78,8 +78,7 @@ author_profile: false
   </style>
 </head>
 
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb)  
+<a href="https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 
 
@@ -106,7 +105,6 @@ author_profile: false
 
 
 > [다형성(shape polymorphic)](https://ko.wikipedia.org/wiki/%EB%8B%A4%ED%98%95%EC%84%B1_(%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B3%BC%ED%95%99))  
-
 > 하나의 객체가 여러가지 타입을 갖는 것
 
 
@@ -230,15 +228,6 @@ eval_step = flax.jax_utils.pad_shard_unpad(
 ## "무한 패딩" 추가하기(Adding “infinite padding)
 
 위의 솔루션은 대부분의 경우 작동하지만 몇 가지 제한 사항이 있습니다 :
-
-
-
-In the rare case where even splitting of the dataset on multiple hosts leads to a different number of batches. Imagine having a dataset of n=4097 examples, and evaluating this on h=8, each having d=8 local devices, and forming on-device batch sizes of b=128. With even dataset splitting, the first host would get 4096/8+1==513 examples, and all other hosts would get 4096/8==512 examples. Forming per-host batches of d*b==512 this would lead to two batches on the first host, and a single batch on all other hosts, violating SPMD principles and hanging the multi-host setup in the last psum() directive (which would only be executed by the first host, but not the others).  
-
-
-
-
-
 1. 드물지만 여러 호스트에서 데이터셋을 분할해도 배치 수가 달라지는 경우가 있습니다. `n=4097`개의 예제의 데이터셋이 있고,이를 `h=8`에서 평가하고, 각각 `d=8`개의 로컬 장치를 가지고 있으며, 온디바이스 배치 크기가 `b=128`이라고 가정해 보겠습니다. 데이터셋을 균등하게 분할하면 첫 번째 호스트는 `4096/8+1==513`개의 예제를 얻게 되고 다른 모든 호스트는 `4096/8==512`개의 예제를 얻게 됩니다. 호스트별로 `d*b==512`의 배치를 형성하면 첫 번째 호스트에는 두 개의 배치가 생성되고, 다른 모든 호스트에는 하나의 배치가 생성되어 SPMD 원칙을 위반하고 마지막 `psum()` 지시문에서 다중 호스트 설정이 중단됩니다(첫 번째 호스트에서만 실행되고 다른 호스트에서는 실행되지 않음).
 
 
@@ -265,7 +254,4 @@ for batch in ds.as_numpy_iterator():
 이 방법이 포함된 다른 예제의 경우, 전체 실행 코드는 Colab에서 확인할 수 있습니다:
 
 
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb)  
-
-
+<a href="https://colab.research.google.com/github/google/flax/blob/main/docs/notebooks/full_eval.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>

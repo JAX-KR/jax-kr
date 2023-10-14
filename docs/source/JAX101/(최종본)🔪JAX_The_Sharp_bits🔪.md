@@ -220,7 +220,7 @@ jnp.arange(10)[11]
 위에서 설명한 두 가지 동작이 서로 역의 관계가 아니기 때문에, 역방향 자동 미분(인덱스 업데이트를 인덱스 검색으로 변환하고 그 반대로 전환)은 범위를 벗어난 [인덱싱의 의미를 보존하지 않습니다](https://github.com/google/jax/issues/5760). 따라서  JAX의 범위를 벗어난 인덱싱을 [정의되지 않은 동작](https://en.wikipedia.org/wiki/Undefined_behavior)으로 생각하는 것이 좋습니다.
 
 ## **🔪 비배열 입력: NumPy vs. Jax (Non-array inputs: NumPy vs. JAX)**
----
+
 NumPy는 일반적으로 Python의 리스트 또는 튜플을 API 함수에 대한 입력으로 사용합니다.
 
 
@@ -666,7 +666,6 @@ print(nansum_2(x))
 
 ## **🔪 NaNs**
 
----
 
 ### NaNs 디버깅
 

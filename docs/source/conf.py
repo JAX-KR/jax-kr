@@ -17,7 +17,6 @@ author = 'JAX/Flax Lab'
 
 extensions = [
     'sphinx.ext.mathjax',
-    'myst_nb',
     'sphinx_design'
 ]
 myst_enable_extensions = ['dollarmath']

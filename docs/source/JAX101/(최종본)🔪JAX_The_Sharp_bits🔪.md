@@ -811,7 +811,6 @@ FloatingPointError                        Traceback (most recent call last)
 
 ## **🔪 Double (64bit) 정밀도 (Double (64bit) precision)**
 
----
 
 현재 JAX는 기본적으로 NumPy API가 피연산자를 강제로 더블형(double)으로 변환하는 경향을 완화하기 위해 단정밀도(single-precision) 숫자를 강제로 적용하고 있습니다. 이는 많은 머신러닝 애플리케이션에서 원하는 동작이지만, 이는 예상치 못한 결과를 초래할 수 있습니다!
 
@@ -871,7 +870,6 @@ x.dtype # --> dtype('float64')
 
 ## **🔪 NumPy에서 유래된 여러가지 파생들 (Miscellaneous Divergences from NumPy)**
 
----
 
 `jax.numpy`는 Numpy API 동작을 유사하게 동작하도록 설계되었지만, 동작이 다른 코너케이스들이 있습니다. 이러한 많은 경우들은 위 섹션에서 자세히 설명합니다. 여기에는 API가 다르게 동작하는 몇 가지 다른 사례들을 나엻합니다.
 
@@ -892,8 +890,6 @@ DeviceArray([254, 255, 255, 255], dtype=uint8)
 이러한 종류의 불일치는 일반적으로 부동에서 정수 유형으로 또는 그 반대로 극단적인 값을 캐스팅할 때 발생합니다.
 
 ## Fin.
-
----
 
 여기에서 다루지 않은 몇몇 당신을 화나게 하는 원인들을 제보해주시면 해당 튜토리얼 페이지에 반영하겠습니다.
 

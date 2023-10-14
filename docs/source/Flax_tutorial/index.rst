@@ -4,6 +4,7 @@ Flax Tutorial
 .. toctree::
    :maxdepth: 1
    :caption: Tutorial
+
    Quickstart_1.md
    Flax_Basics.md
    Managing_Parameters_and_State.md

@@ -12,3 +12,6 @@ JAX-KR에 기여하기 위해서는 최소 1개의 md파일이 필요하며 코�
 
 ## 번역 가이드라인
 번역 가이드라인의 경우 [스프레드시트](https://docs.google.com/spreadsheets/d/1AQNMxQgpeVokmRbgVGutmwPKRl4UpKKH/edit?usp=sharing&ouid=114790254000786214460&rtpof=true&sd=true)로 관리하고 있습니다.
+
+## HacktoberFest KR 전용 추천 번역글
+HacktoberFest KR를 진행하는 분들을 위해 [스프레드시트](https://docs.google.com/spreadsheets/d/1StOqE7IBcEVLH6-d2X7znIcurP_ZlNYob0W2kspHA60/edit?usp=sharing)를 공유합니다. 해당 내용을 참고해서 작성하는걸 추천합니다.

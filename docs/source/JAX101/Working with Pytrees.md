@@ -175,9 +175,6 @@ plt.scatter(xs, forward(params, xs), label='Model prediction')
 plt.legend();
 ```
 
-
-    
-![png](Working%20with%20Pytrees_files/Working%20with%20Pytrees_16_0.png)
     
 
 

@@ -82,3 +82,10 @@ JAX 프로젝트 README의 `설치 가이드 <https://github.com/google/jax#inst
 
    Flax_tutorial/index
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   JAX_Keras/index
+
+

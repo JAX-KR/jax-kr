@@ -1,3 +1,2 @@
-myst-nb
 sphinx-book-theme>=1.0.0
 sphinx-design

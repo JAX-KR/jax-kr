@@ -5,8 +5,7 @@
 [![Open On GitHub](https://img.shields.io/badge/Open-on%20GitHub-blue?logo=GitHub)](https://github.com/google/flax/blob/main/docs/notebooks/state_params.ipynb)
 
 
-번역: 장진우 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
-)](www.linkedin.com/in/jinwoo1126) \\
+번역: 장진우
 
 해당 노트북은 아래의 흐름에 따라 여러분들께 Flax를 소개합니다.
 

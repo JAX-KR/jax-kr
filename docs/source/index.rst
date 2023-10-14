@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 JAX KR 문서 번역 프로젝트
-본 연구(프로젝트)는 모두의연구소 K-디지털 플랫폼의 지원 받아 진행하고 있습니다.
+
 ==============================================
 
 JAX는 고성능 수치 컴퓨팅을 위해 `Autograd <https://github.com/hips/autograd>`_ 와 `XLA <https://www.tensorflow.org/xla>`_ 를 결합한 것입니다.
@@ -59,6 +59,7 @@ JAX는 고성능 수치 컴퓨팅을 위해 `Autograd <https://github.com/hips/a
           pip install "jax[tpu]>=0.2.16" -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
 
 JAX 프로젝트 README의 `설치 가이드 <https://github.com/google/jax#installation>`_에서 지원되는 가속기와 플랫폼에 대한 자세한 정보 및 기타 설치 옵션을 확인할 수 있습니다.
+본 연구(프로젝트)는 모두의연구소 K-디지털 플랫폼의 지원 받아 진행하고 있습니다.
 
 .. toctree::
    :hidden:

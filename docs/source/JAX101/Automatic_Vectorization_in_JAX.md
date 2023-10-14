@@ -1,5 +1,5 @@
 # JAX의 자동 벡터화
----
+
 <a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/03-vectorization.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 *저자 : Matteo Hessel*

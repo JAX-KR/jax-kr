@@ -1,5 +1,5 @@
 # JAX의 고급 자동 미분
----
+
 <a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/04-advanced-autodiff.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 *저자: Vlatimir Miklik & Matteo Hessel*

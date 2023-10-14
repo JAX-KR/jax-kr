@@ -1,5 +1,7 @@
 # JAX-KR
 
+[![Documentation Status](https://readthedocs.org/projects/jax-kr/badge/?version=latest)](https://jax-kr.readthedocs.io/ko/latest/?badge=latest)
+
 ## 개요
 [JAX 문서](https://jax.readthedocs.io/)와 [Flax 문서](https://flax.readthedocs.io/en/latest/) 한글화를 진행하는 프로젝트입니다.
 해당 문서는 readthedocs.org를 활용해서 만들었습니다.

@@ -1,5 +1,5 @@
 # JAX에서 병렬 평가(Parallel Evaluation)
----
+
 <a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/06-parallelism.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 
@@ -477,8 +477,7 @@ plt.show()
 ```
 
 
-    
-![png](JAX_Parallelism_files/JAX_Parallelism_43_0.png)
+
     
 
 

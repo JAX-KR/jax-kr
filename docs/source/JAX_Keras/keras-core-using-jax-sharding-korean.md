@@ -316,8 +316,3 @@ for variable, value in zip(model.non_trainable_variables, non_trainable_variable
 ```python
 
 ```
-
-
-```python
-
-```

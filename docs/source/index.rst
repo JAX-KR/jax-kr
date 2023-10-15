@@ -4,7 +4,6 @@
    contain the root `toctree` directive.
 
 JAX KR 문서 번역 프로젝트
-
 ==============================================
 
 JAX는 고성능 수치 컴퓨팅을 위해 `Autograd <https://github.com/hips/autograd>`_ 와 `XLA <https://www.tensorflow.org/xla>`_ 를 결합한 것입니다.

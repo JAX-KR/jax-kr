@@ -15,7 +15,7 @@ JAX-KR에 기여하기 위해서는 최소 1개의 md파일이 필요하며 코�
 
 ## HacktoberFest KR 전용 추천 번역글
 HacktoberFest KR를 진행하는 분들을 위해 [스프레드시트](https://docs.google.com/spreadsheets/d/1StOqE7IBcEVLH6-d2X7znIcurP_ZlNYob0W2kspHA60/edit?usp=sharing)를 공유합니다.\
-해당 스프레드시트에는 번역하기 용이한 글들을 아카이브했으며 번역하고 싶은 글이 있다면 담당자에 본인 이름을 작성하고 진행해주세요!\
+해당 스프레드시트에는 번역하기 용이한 글들을 아카이브했으며 번역하고 싶은 글이 있다면 담당자에 본인 이름을 작성하고 진행해주세요!
 
 
 

@@ -16,7 +16,7 @@
 !pip install -q keras-core
 ```
 
-#설정 (Setup)
+## 설정 (Setup)
 우리는 여기에서 JAX 백엔드를 사용할 것입니다 -- 하지만 아래의 문자열을 `"tensorflow"` 또는 `"torch"`로 수정하고 "Restart runtime"을 누르면, 전체 노트북은 동일하게 실행될 것입니다! 이 전체 가이드는 백엔드에 구애받지 않습니다.
 
 
@@ -32,7 +32,7 @@ os.environ["KERAS_BACKEND"] = "jax"
 import keras_core as keras
 ```
 
-#첫 번째 예제: MNIST 컨볼루션 네트워크 (A first example: A MNIST convnet)
+## 첫 번째 예제: MNIST 컨볼루션 네트워크 (A first example: A MNIST convnet)
 ML의 Hello World부터 시작해보겠습니다: 컨볼루션 네트워크을 훈련시켜 MNIST 숫자를 분류합니다.
 
 다음은 데이터입니다:
@@ -154,7 +154,7 @@ predictions = model.predict(x_test)
 
 기본 사항은 이것으로 끝입니다!
 
-# 크로스-프레임워크 커스텀 컴포넌트 작성(Writing cross-framework custom components)
+## 크로스-프레임워크 커스텀 컴포넌트 작성(Writing cross-framework custom components)
 케라스 코어는 동일한 코드베이스로 TensorFlow, JAX, PyTorch에서 작동하는 커스텀 레이어, 모델, 평가지표, 손실함수, 옵티마이저를 작성할 수 있게 해줍니다. 먼저 커스텀 레이어를 살펴봅시다.
 
 `tf.keras`에서 커스텀 레이어를 작성하는 방법을 이미 알고 있다면 — 좋습니다, 아무것도
@@ -276,7 +276,7 @@ model.fit(
 )
 ```
 
-# 임의의 데이터 소스에서 모델 학습하기 (Training models on arbitrary data sources)
+## 임의의 데이터 소스에서 모델 학습하기 (Training models on arbitrary data sources)
 모든 케라스 모델은 사용하는 백엔드에 상관없이 다양한 데이터 소스에서 훈련 및 평가할 수 있습니다. 이에는 다음이 포함됩니다:
 
 - NumPy 배열

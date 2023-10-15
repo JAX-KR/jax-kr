@@ -69,7 +69,7 @@ class CNN(nn.Module):
 
 ```
 
-### View model layers
+## View model layers
 
 Flax Module의 인스턴스를 생성하고, Module.tabulate 메서드를 사용하여 모델 레이어의 테이블을 시각화합니다. 이를 위해 RNG 키와 템플릿 이미지 입력을 전달합니다.
 

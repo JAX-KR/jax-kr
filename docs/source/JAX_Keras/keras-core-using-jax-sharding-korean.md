@@ -1,6 +1,6 @@
 # JAX로 다중-GPU 분산학습 진행하기 (Multi-GPU distributed training with JAX)
 
-<a href="https://colab.research.google.com/github/google/jax/blob/main/docs/jax-101/06-parallelism.ipynb" target="_parent"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open in Kaggle Notebook"/></a>
+<a href="https://www.kaggle.com/yblee2/keras-core-using-jax-sharding-korean" target="_parent"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open in Kaggle Notebook"/></a>
 
 **저자:** [fchollet](https://twitter.com/fchollet)<br>
 **역자:** [이영빈](https://github.com/mezcalagave)\

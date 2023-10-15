@@ -6,14 +6,14 @@ Flax에 오신 것을 환영합니다!
 
 Flax는 JAX 위에 구축된 오픈 소스 Python 신경망 라이브러리입니다. 이 튜토리얼은 Flax Linen API를 사용하여 간단한 합성곱 신경망(CNN)을 구축하고 MNIST 데이터셋에서 이미지 분류를 위해 해당 신경망을 훈련하는 방법을 보여줍니다.
 
-# 1. Flax 설치하기
+## 1. Flax 설치하기
 
 
 ```python
 !pip install -q flax
 ```
 
-# 2. 데이터 로드하기
+## 2. 데이터 로드하기
 
 Flax는 어떤 데이터 로딩 파이프라인이든 사용할 수 있으며, 이 예제에서는 TFDS를 활용하는 방법을 보여줍니다. MNIST 데이터셋을 로드하고 준비하는 함수를 정의하고, 샘플을 부동 소수점 숫자로 변환하는 함수입니다.
 
@@ -42,7 +42,7 @@ def get_datasets(num_epochs, batch_size):
   return train_ds, test_ds
 ```
 
-#3. 네트워크 정의하기
+## 3. 네트워크 정의하기
 
 Flax Linen API를 사용하여 Flax Module을 서브클래싱하여 합성곱 신경망을 생성합니다. 이 예제에서 사용하는 아키텍처는 비교적 간단하므로-레이어를 단순히 쌓는 것- __call__ 메소드 내에서 인라인 서브모듈을 직접 정의하고 @compact 데코레이터로 감싸는 방식으로 구현할 수 있습니다. Flax Linen @compact 데코레이터에 대해 자세히 알아보려면 "Setup vs Compact 가이드"를 참조하시기 바랍니다.
 
@@ -69,7 +69,7 @@ class CNN(nn.Module):
 
 ```
 
-## View model layers
+### View model layers
 
 Flax Module의 인스턴스를 생성하고, Module.tabulate 메서드를 사용하여 모델 레이어의 테이블을 시각화합니다. 이를 위해 RNG 키와 템플릿 이미지 입력을 전달합니다.
 
@@ -82,7 +82,7 @@ cnn = CNN()
 print(cnn.tabulate(jax.random.PRNGKey(0), jnp.ones((1, 28, 28, 1))))
 ```
 
-# 4. Create a TrainState
+## 4. Create a TrainState
 
 Flax에서 일반적인 패턴은 step number, parameters,
 optimizer state를 포함한 전체 훈련 상태를 나타내는 단일 데이터 클래스를 생성하는 것입니다.
@@ -129,7 +129,7 @@ def create_train_state(module, rng, learning_rate, momentum):
       metrics=Metrics.empty())
 ```
 
-# 5. Training step
+## 5. Training step
 
 아래와 같은 기능을 수행하는 함수입니다:
 
@@ -157,7 +157,7 @@ def train_step(state, batch):
 
 ```
 
-# 6. Metric computation
+## 6. Metric computation
 
 손실과 정확도 메트릭을 위한 별도의 함수를 작성합니다. 손실은 optax.softmax_cross_entropy_with_integer_labels 함수를 사용하여 계산하고, 정확도는 clu.metrics를 사용하여 계산합니다.
 
@@ -175,7 +175,7 @@ def compute_metrics(*, state, batch):
   return state
 ```
 
-# 7. 데이터 다운로드
+## 7. 데이터 다운로드
 
 
 
@@ -187,7 +187,7 @@ batch_size = 32
 train_ds, test_ds = get_datasets(num_epochs, batch_size)
 ```
 
-# 8. Seed randomness
+## 8. Seed randomness
 
 - 데이터셋 셔플을 재현할 수 있도록 TF random seed를 설정합니다.(`tf.data.Dataset.shuffle` 사용)
 
@@ -203,7 +203,7 @@ tf.random.set_seed(0)
 init_rng = jax.random.PRNGKey(0)
 ```
 
-# 9. TrainState 초기화
+## 9. TrainState 초기화
 
 
 `create_train_state` 함수는 모델 매개변수, 옵티마이저 및 메트릭을 초기화 합니다. 이는 학습 상태(training state) 데이터 클래스에 입력되고, 해당 데이터 클래스가 함수의 출력으로 반환됩니다.
@@ -220,7 +220,7 @@ state = create_train_state(cnn, init_rng, learning_rate, momentum)
 del init_rng  # Must not be used anymore.
 ```
 
-# 10. 학습 및 평가
+## 10. 학습 및 평가
 
 "셔플된" 데이터셋을 생성합니다.
 - 데이터셋은 학습 에폭 수만큼 반복됩니다.
@@ -271,7 +271,7 @@ for step,batch in enumerate(train_ds.as_numpy_iterator()):
           f"accuracy: {metrics_history['test_accuracy'][-1] * 100}")
 ```
 
-# 11. 메트릭 시각화
+## 11. 메트릭 시각화
 
 
 
@@ -291,7 +291,7 @@ plt.show()
 plt.clf()
 ```
 
-# 12. 테스트셋에서 추론 수행
+## 12. 테스트셋에서 추론 수행
 
 jit 컴파일된 추론 함수 `pred_step`을 정의합니다. 학습된 매개변수를 사용하여 테스트셋에서 모델 추론을 수행하고, 입력 이미지와 예측된 레이블을 시각화합니다.
 

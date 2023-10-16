@@ -1,4 +1,4 @@
-# JAX로 `fit()`에서 일어나는 일 사용자 정의하기
+# JAX로 `fit()`에서 일어나는 일 사용자 정의하기(Customizing what happens in fit() with JAX)
 
 **저자:** [fchollet](https://twitter.com/fchollet)<br>
 **역자:** [조현석](mailto:hoyajigi@gmail.com)<br>
@@ -7,7 +7,7 @@
 **마지막 수정:** 2023/06/27<br>
 **설명:** 모델 클래스의 훈련 단계를 JAX로 재정의합니다.
 
-<img class="k-inline-icon" src="https://colab.research.google.com/img/colab_favicon.ico"/> [**View in Colab**](https://colab.research.google.com/drive/1sSz6_fi8S0OHn3T_73046sI2P1rB4-xy)  <span class="k-dot">•</span><img class="k-inline-icon" src="https://github.com/favicon.ico"/> [**GitHub source**](https://github.com/keras-team/keras-io/blob/master/guides/keras_core/custom_train_step_in_jax.py)
+<a href="https://colab.research.google.com/drive/1sSz6_fi8S0OHn3T_73046sI2P1rB4-xy" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
 
 
 ## 소개

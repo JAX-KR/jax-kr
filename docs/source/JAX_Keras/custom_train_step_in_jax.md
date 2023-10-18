@@ -1,23 +1,23 @@
-# JAX로 `fit()`에서 일어나는 일 사용자 정의하기(Customizing what happens in fit() with JAX)
+# JAX로 `fit()`에서 일어나는 일 사용자 정의하기 (Customizing what happens in `fit()` with JAX)
 
 **저자:** [fchollet](https://twitter.com/fchollet)<br>
-**역자:** [조현석](mailto:hoyajigi@gmail.com)<br>
+**역자:** [조현석](https://constacts.com/moomin)<br>
 **검수:** 이영빈, 박정현<br>
 **생성 날짜:** 2023/06/27<br>
 **마지막 수정:** 2023/06/27<br>
-**설명:** 모델 클래스의 훈련 단계를 JAX로 재정의합니다.
+**설명:** 모델 클래스의 학습 단계를 JAX로 오버라이드합니다.
 
-<a href="https://colab.research.google.com/drive/1sSz6_fi8S0OHn3T_73046sI2P1rB4-xy" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/></a>
+<img class="k-inline-icon" src="https://colab.research.google.com/img/colab_favicon.ico"/> [**View in Colab**](https://colab.research.google.com/drive/1sSz6_fi8S0OHn3T_73046sI2P1rB4-xy)  <span class="k-dot">•</span><img class="k-inline-icon" src="https://github.com/favicon.ico"/> [**GitHub source**](https://github.com/keras-team/keras-io/blob/master/guides/keras_core/custom_train_step_in_jax.py)
 
 
-## 소개
+## 소개 (Introduction)
 
 지도 학습을 할 때 `fit()`을 사용하면 모든 것이 원활하게 작동합니다.
 
-모든 세부 사항을 제어해야 하는 경우, 자신만의 훈련
+모든 세부 사항을 제어해야 하는 경우, 자신만의 학습
 루프를 완전히 처음부터 작성할 수 있습니다.
 
-하지만 사용자 지정 학습 알고리즘이 필요하지만 여전히
+하지만 커스텀 학습 알고리즘이 필요하지만 여전히
 콜백, 기본 제공 배포 지원과 같은 `fit()`의 편리한 기능을 활용하고 싶다면 어떻게 해야 할까요?
 또는 단계 융합과 같은 편리한 기능을 활용하고 싶으신가요?
 
@@ -25,13 +25,13 @@ Keras의 핵심 원칙은 **복잡성의 점진적 공개**입니다. 사용자�
 항상 점진적인 방식으로 로우 레벨의 워크플로우에 진입할 수 있어야 합니다.
 하이 레벨의 기능이 사용 사례와 정확히 일치하지 않는다고 해서 갑자기 로우 레벨로 바뀌면 안 됩니다. 높은 수준의 편의성을 유지하면서 작은 세부 사항을 더 잘 제어할 수 있어야 합니다.
 
-`fit()`의 기능을 사용자 정의해야 하는 경우, `Model` 클래스의 훈련 단계 함수를 **재정의해야 합니다**. 이 함수는 모든 데이터 배치에 대해 `fit()`에 의해 호출되는 함수입니다. 그러면 평소처럼 `fit()`을 호출할 수 있으며, 자체 학습 알고리즘이 실행됩니다.
+`fit()`의 기능을 커스텀해야 하는 경우, `Model` 클래스의 학습 단계 함수를 **오버라이드해야 합니다**. 이 함수는 모든 데이터 배치에 대해 `fit()`에 의해 호출되는 함수입니다. 그러면 평소처럼 `fit()`을 호출할 수 있으며, 자체 학습 알고리즘이 실행됩니다.
 
 이 패턴은 함수형 API로 모델을 빌드하는 것을 방해하지 않습니다. '시퀀셜' 모델, 함수형 API 모델 또는 하위 클래스 모델을 빌드하든 상관없이 이 작업을 수행할 수 있습니다.
 
 어떻게 작동하는지 살펴보겠습니다.
 
-## 설정
+## 설정 (Setup)
 
 
 ```python
@@ -48,7 +48,7 @@ import numpy as np
     Using JAX backend.
 
 
-## 첫 번째 간단한 예시
+## 첫 번째 간단한 예시 (A first simple example)
 
 간단한 예제부터 시작하겠습니다:
 
@@ -170,7 +170,7 @@ model.fit(x, y, epochs=3)
 
 
 
-## 로우 레벨로 해보기
+## 로우 레벨로 해보기 (Going lower-level)
 
 당연히 `compile()`에서 손실 함수를 전달하는 것을 건너뛰고 대신 `train_step`에서
 모든 것을 *수동으로* 할 수 있습니다. 메트릭도 마찬가지입니다.
@@ -302,10 +302,10 @@ model.fit(x, y, epochs=5)
 
 
 
-## 자체 평가 단계 제공
+## 자체 평가 단계 만들기 (Providing your own evaluation step)
 
 `model.evaluate()` 호출에 대해 동일한 작업을 수행하려면 어떻게 해야 할까요? 그렇다면
-test_step`을 정확히 같은 방식으로 재정의하면 됩니다. 이렇게 하면 됩니다:
+test_step`을 정확히 같은 방식으로 오버라이드하면 됩니다. 이렇게 하면 됩니다:
 
 
 ```python
